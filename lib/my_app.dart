@@ -18,7 +18,11 @@ class MyApp extends StatelessWidget {
                 ? Brightness.dark
                 : Brightness.light,
           ),
-          home: LoginView(),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => LoginView(),
+            '/home': (context) => HomeView(),
+          },
         );
       },
     );

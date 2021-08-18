@@ -23,6 +23,14 @@ class _LoginViewState extends State<LoginView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Container(
+                  height: 200,
+                  width: 200,
+                  child: Image.asset('assets/images/logo.png'),
+                ),
+                Container(
+                  height: 20,
+                ),
                 TextField(
                   onChanged: (text) {
                     email = text;
@@ -54,7 +62,10 @@ class _LoginViewState extends State<LoginView> {
                   onPressed: () {
                     if (email == 'flutter@flutter.com.br' &&
                         password == '123') {
-                    } else {}
+                      Navigator.of(context).pushReplacementNamed('/home');
+                    } else {
+                      print('Login errado');
+                    }
                   },
                   child: Text('Entrar'),
                 )
