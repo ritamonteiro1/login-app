@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/app_controller.dart';
+import 'package:login_app/views/login_view.dart';
 
-import 'home_view.dart';
+import 'views/home_view.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
                 ? Brightness.dark
                 : Brightness.light,
           ),
-          home: HomeView(),
+          home: LoginView(),
         );
       },
     );
