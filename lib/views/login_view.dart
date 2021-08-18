@@ -60,7 +60,8 @@ class _LoginViewState extends State<LoginView> {
                           ),
                         ),SizedBox(
                           height: 15,
-                        ), RaisedButton(
+                        ),
+                        RaisedButton(
                           textColor: Colors.white,
                           color: Colors.red,
                           onPressed: () {
@@ -72,11 +73,15 @@ class _LoginViewState extends State<LoginView> {
                             }
                           },
                           child: Container(
-                              width: double.infinity, child: Text('Entrar', textAlign: TextAlign.center,)),
+                              width: double.infinity,
+                              child: Text('Entrar',
+                                textAlign: TextAlign.center,),
+                          ),
                         ),
                       ],
                     ),
-                  ),),
+                  ),
+                  ),
                 ],
               ),
             ),

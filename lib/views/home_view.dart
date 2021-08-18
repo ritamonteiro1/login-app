@@ -14,6 +14,35 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+              currentAccountPicture: ClipRRect(
+                  borderRadius: BorderRadius.circular((40)),
+                  child: Image.asset('assets/images/background.jpg')),
+              accountName: Text('Nome'),
+              accountEmail: Text('flutter@flutter.com.br'),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Início'),
+              subtitle: Text('Tela de início'),
+              onTap: () {
+                print('Home');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Sair'),
+              subtitle: Text('Finalizar sessão'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text('Home Page'),
         actions: [
