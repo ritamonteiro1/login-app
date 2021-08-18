@@ -31,44 +31,52 @@ class _LoginViewState extends State<LoginView> {
                   Container(
                     height: 20,
                   ),
-                  TextField(
-                    onChanged: (text) {
-                      email = text;
-                    },
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      border: OutlineInputBorder(),
+                  Card(child: Padding(
+                    padding: const EdgeInsets.only(left: 12, right: 12, top: 20, bottom: 12),
+                    child: Column(
+                      children: [
+                        TextField(
+                          onChanged: (text) {
+                            email = text;
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            labelText: 'Email',
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          onChanged: (text) {
+                            password = text;
+                          },
+                          keyboardType: TextInputType.number,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            labelText: 'Senha',
+                            border: OutlineInputBorder(),
+                          ),
+                        ),SizedBox(
+                          height: 15,
+                        ), RaisedButton(
+                          textColor: Colors.white,
+                          color: Colors.red,
+                          onPressed: () {
+                            if (email == 'flutter@flutter.com.br' &&
+                                password == '123') {
+                              Navigator.of(context).pushReplacementNamed('/home');
+                            } else {
+                              print('Login errado');
+                            }
+                          },
+                          child: Container(
+                              width: double.infinity, child: Text('Entrar', textAlign: TextAlign.center,)),
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextField(
-                    onChanged: (text) {
-                      password = text;
-                    },
-                    keyboardType: TextInputType.number,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      labelText: 'Senha',
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  RaisedButton(
-                    onPressed: () {
-                      if (email == 'flutter@flutter.com.br' &&
-                          password == '123') {
-                        Navigator.of(context).pushReplacementNamed('/home');
-                      } else {
-                        print('Login errado');
-                      }
-                    },
-                    child: Text('Entrar'),
-                  )
+                  ),),
                 ],
               ),
             ),
@@ -80,6 +88,22 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: _body());
+    return Scaffold(
+      body: Stack(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Image.asset(
+              'assets/images/background.jpg',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.3),
+          ),
+          _body(),
+        ],
+      ),
+    );
   }
 }
