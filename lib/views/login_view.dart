@@ -94,20 +94,22 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Image.asset(
-              'assets/images/background.jpg',
-              fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset(
+                'assets/images/background.jpg',
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          Container(
-            color: Colors.black.withOpacity(0.3),
-          ),
-          _body(),
-        ],
+            Container(
+              color: Colors.black.withOpacity(0.3),
+            ),
+            _body(),
+          ],
+        ),
       ),
     );
   }
